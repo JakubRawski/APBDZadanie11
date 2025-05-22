@@ -17,11 +17,9 @@ public class PharmacyContext : DbContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Define composite primary key for PrescriptionMedicament
             modelBuilder.Entity<PrescriptionMedicament>()
                 .HasKey(pm => new { pm.IdMedicament, pm.IdPrescription });
 
-            // Relationships
             modelBuilder.Entity<PrescriptionMedicament>()
                 .HasOne(pm => pm.Medicament)
                 .WithMany(m => m.PrescriptionMedicaments)
@@ -42,7 +40,6 @@ public class PharmacyContext : DbContext
                 .WithMany(d => d.Prescriptions)
                 .HasForeignKey(p => p.IdDoctor);
 
-            // Seed data for initial testing (optional, but good for quick setup)
             modelBuilder.Entity<Medicament>().HasData(
                 new Medicament { IdMedicament = 1, Name = "Paracetamol", Description = "Pain reliever", Type = "Analgesic" },
                 new Medicament { IdMedicament = 2, Name = "Amoxicillin", Description = "Antibiotic", Type = "Antibiotic" },
