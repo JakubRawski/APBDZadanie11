@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
-
+/*
 #nullable disable
 
 namespace Tutorial5.Migrations
@@ -83,3 +83,4 @@ namespace Tutorial5.Migrations
         }
     }
 }
+*/
